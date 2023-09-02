@@ -1,8 +1,8 @@
-FROM maven:3.8.6-openjdk-20 AS build
+FROM maven:3.8.5-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests 
 
-FROM openjdk:20-jdk-slim
+FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/xiaomi-0.0.1-SNAPSHOT.jar xiaomi.jar
 EXPOSE 8080
 ENTRYPOINT [ "java", "-jar","xiaomi.jar" ]
