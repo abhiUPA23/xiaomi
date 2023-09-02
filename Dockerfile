@@ -6,3 +6,4 @@ FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/xiaomi-0.0.1-SNAPSHOT.jar xiaomi.jar
 EXPOSE 8080
 ENTRYPOINT [ "java", "-jar","xiaomi.jar" ]
+# this is test
